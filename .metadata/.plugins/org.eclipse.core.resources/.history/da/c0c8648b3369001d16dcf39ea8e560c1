@@ -1,0 +1,26 @@
+package com.Mission.Service;
+
+import java.lang.reflect.Member;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.web.bind.annotation.GetMapping;
+
+import com.Mission.domain.MemberVO;
+
+public class MemberService {
+
+	@GetMapping("/getMemberList")
+	public List<MemberVO> getMemberList() {
+		List<MemberVO> memberList = new ArrayList<MemberVO>();
+
+		for (int i = 0; i <= 10; i++) {
+			MemberVO memberVO = new MemberVO();
+			memberVO.setId(i);
+			memberVO.setPass("id" + i);
+			memberVO.setName("name" + i);
+			memberVO.setRegidate();
+		}
+		return memberList;
+	}
+}

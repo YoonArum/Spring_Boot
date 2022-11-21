@@ -1,0 +1,5 @@
+package com.Mission.domain;
+
+public class MemberVO {
+
+}

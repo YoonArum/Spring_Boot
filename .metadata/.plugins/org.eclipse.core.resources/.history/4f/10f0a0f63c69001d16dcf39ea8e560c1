@@ -1,0 +1,32 @@
+package com.Mission.Service;
+
+import java.util.Date;
+import java.util.Iterator;
+import java.util.List;
+
+import org.springframework.web.bind.annotation.GetMapping;
+
+import com.Mission.domain.MemberVO;
+
+public class MemberService {
+
+	public List<MemberVO> list;
+
+	public List MemberService() {
+		for (int i = 0; i < 10; i++) {
+			MemberVO member = new MemberVO();
+			member.setId(i);
+			member.setPass("pass"+i);
+			member.setName("이름"+i);
+			member.setRegidate(new Date());
+			list.add(member);
+		
+		}
+		return list;
+	}
+	
+	@GetMapping("/getMember")
+	public List<MemberVO> getMember(){		
+		return list;		
+	}
+}

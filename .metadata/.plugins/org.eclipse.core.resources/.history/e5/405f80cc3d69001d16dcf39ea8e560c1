@@ -1,0 +1,33 @@
+package com.Mission.Service;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import org.springframework.web.bind.annotation.GetMapping;
+
+import com.Mission.domain.MemberVO;
+
+public class MemberService {
+
+
+	public List<MemberVO> member = new ArrayList<MemberVO>();
+	
+	public List<MemberVO> MemberService() {
+		for (int i = 0; i < 10; i++) {
+			MemberVO membervo = new MemberVO();
+			membervo.setId(i);
+			membervo.setPass("pass"+i);
+			membervo.setName("이름"+i);
+			membervo.setRegidate(new Date());
+			member.add(membervo);
+		
+		}
+		return member;
+	}
+	
+	@GetMapping("/getMember")
+	public List<MemberVO> getMember(){		
+		return member;		
+	}
+}
