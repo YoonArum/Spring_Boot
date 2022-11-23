@@ -1,8 +1,10 @@
 package com.Mission.controller;
 
+import java.security.Provider.Service;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Scanner;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,71 +15,43 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.Mission.DB.MemberDAO;
 import com.Mission.DB.MemberVO;
+import com.Mission.service.MemberService;
 
 @RestController
 public class MemberController {
-	List<MemberVO> list;
+
+	MemberService service;
+
 	static MemberDAO dao;
 
 	// DB 불러오기
 	public MemberController() {
-		dao  = new MemberDAO();		
+		service = new MemberService();
+		
 	}
-	
+
 	// /getMember member 전체 값 불러오기
 	@GetMapping("member")
-	public List<MemberVO> getMember() {
-		return list;
+	public ArrayList<MemberVO> getMember() {		
+		return service.selectDB();
 	}
-	
+
 	@PostMapping("member")
-	public MemberVO addMember(MemberVO memberVO) {
-		System.out.println("post");
-
-		MemberVO member = new MemberVO();
-
-		member.setId(memberVO.getId());
-		member.setPass(memberVO.getPass());
-		member.setName(memberVO.getName());
-		member.setRegidate(new String());
-
-		list.add(member);
-
-		return member;
+	public MemberVO InsertMember(MemberVO memberVO) {
+		service.insertDB(memberVO.getId(), memberVO.getPass(), memberVO.getName());
+		return null;
 	}
 
 	@PutMapping("member")
-	public MemberVO updateMembers(MemberVO memberVO) { 
-		System.out.println("post");
-
-		MemberVO member = new MemberVO();
-
-		member.setId(memberVO.getId());
-		member.setPass(memberVO.getPass());
-		member.setName(memberVO.getName());
-		member.setRegidate(new String());
-
-
-
-		return member;
+	public MemberVO updateMembers(MemberVO memberVO) {
+		service.updateDB(memberVO.getId(), memberVO.getPass(), memberVO.getName());
+		return null;
 	}
 
 	@DeleteMapping("member/{id}")
 	public MemberVO removeMember(@PathVariable String id) {
-		for (MemberVO m : list) {
-			// id 값이 같을 경우
-			if (m.getId() == id) {
-				// remove 제거한다
-				list.remove(m);
-				return m;
-			}
-		}
-		return null;
+		
+		return service.deleteDB(id);
 	}
 
-
-
-
-
-	
 }

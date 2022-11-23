@@ -1,7 +1,5 @@
 package com.Mission.DB;
 
-import java.util.Date;
-
 public class MemberVO {
 
 	private String id;
