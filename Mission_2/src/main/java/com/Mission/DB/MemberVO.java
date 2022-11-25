@@ -1,17 +1,19 @@
 package com.Mission.DB;
 
+import java.sql.Date;
+
 public class MemberVO {
 
 	private String id;
 	private String pass;
 	private String name;
-	private String regidate;
+	private Date regidate;
 
 	public MemberVO() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public MemberVO(String id, String pass, String name, String regidate) {
+	public MemberVO(String id, String pass, String name, Date regidate) {
 		super();
 		this.id = id;
 		this.pass = pass;
@@ -43,12 +45,13 @@ public class MemberVO {
 		this.name = name;
 	}
 
-	public String getRegidate() {
+	public Date getRegidate() {
 		return regidate;
 	}
 
-	public void setRegidate(String regidate) {
+	public void setRegidate(Date regidate) {
 		this.regidate = regidate;
 	}
+
 
 }

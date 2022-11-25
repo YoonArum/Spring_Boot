@@ -27,31 +27,39 @@ public class MemberController {
 	// DB 불러오기
 	public MemberController() {
 		service = new MemberService();
-		
+
 	}
 
 	// /getMember member 전체 값 불러오기
 	@GetMapping("member")
-	public ArrayList<MemberVO> getMember() {		
-		return service.selectDB();
+	public ArrayList<MemberVO> getMember() {
+		
+		return service.selectData();
 	}
 
 	@PostMapping("member")
 	public MemberVO InsertMember(MemberVO memberVO) {
-		service.insertDB(memberVO.getId(), memberVO.getPass(), memberVO.getName());
-		return null;
+		
+		return service.insertData(memberVO.getId(), memberVO.getPass(), memberVO.getName());
 	}
 
 	@PutMapping("member")
-	public MemberVO updateMembers(MemberVO memberVO) {
-		service.updateDB(memberVO.getId(), memberVO.getPass(), memberVO.getName());
-		return null;
+	public MemberVO updateMembers(MemberVO memberVO) {	
+		
+		return service.updateData(memberVO.getId(), memberVO.getPass(), memberVO.getName());
 	}
 
 	@DeleteMapping("member/{id}")
 	public MemberVO removeMember(@PathVariable String id) {
-		
-		return service.deleteDB(id);
+
+		return service.deleteData(id);
 	}
+	
+	@GetMapping("member/{id}")
+	public MemberVO postMember(@PathVariable String id) {
+
+		return service.getData(id);
+	}
+
 
 }
