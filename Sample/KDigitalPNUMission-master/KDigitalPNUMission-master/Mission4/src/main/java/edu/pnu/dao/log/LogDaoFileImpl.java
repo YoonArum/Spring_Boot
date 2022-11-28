@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.FileWriter;
 
 public class LogDaoFileImpl implements LogDao {
-	
+	// interface logDao addLog 함수 설정
 	@Override
 	public void addLog(String method, String sqlstring, boolean success) {
 		try {
@@ -17,3 +17,5 @@ public class LogDaoFileImpl implements LogDao {
 		}
 	}
 }
+
+// File File Write 함수 - https://homzzang.com/b/java-51

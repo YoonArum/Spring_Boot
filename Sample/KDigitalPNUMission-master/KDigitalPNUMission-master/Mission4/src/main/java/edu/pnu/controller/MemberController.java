@@ -19,14 +19,14 @@ import edu.pnu.service.MemberService;
 public class MemberController {
 
 	private MemberService memberService;
-	
+
 	private static final Logger log = LoggerFactory.getLogger(MemberController.class);
-	
+
 	public MemberController() {
 		log.info("MemberController() 생성자가 호출됨.");
-		memberService = new MemberService();
+		memberService = new MemberService();		
 	}
-	
+
 	@GetMapping("/member")
 	public List<MemberVO> getMembers() {
 		log.info("MemberController - getMembers()가 호출됨.");
@@ -44,7 +44,7 @@ public class MemberController {
 		log.info(String.format("MemberController - getMemberbyJSON(%s)이 호출됨.", member));
 		return memberService.getMember(member.getId());
 	}
-	
+
 	@PostMapping("/member")
 	public MemberVO addMember(MemberVO member) {
 		log.info(String.format("MemberController - addMember(%s)가 호출됨.", member));
@@ -56,7 +56,7 @@ public class MemberController {
 		log.info(String.format("MemberController - updateMember(%s)가 호출됨.", member));
 		return memberService.updateMember(member);
 	}
-	
+
 	@DeleteMapping("/member/{id}")
 	public MemberVO deleteMember(@PathVariable Integer id) {
 		log.info(String.format("MemberController - deleteMember(%ㅇ)가 호출됨.", id));

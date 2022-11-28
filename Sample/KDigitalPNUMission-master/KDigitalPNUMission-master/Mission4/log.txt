@@ -1,0 +1,12 @@
+get,select * from member order by id asc,true
+get,select * from member order by id asc,true
+put,update member set name='key',pass='12345' where id=9,false
+get,select * from member order by id asc,true
+post,insert into member (id,name,pass,regidate) values (9,'key','12345','2022-11-28'),true
+put,update member set name='key',pass='123456' where id=9,true
+put,update member set name='null',pass='null' where id=0,false
+put,update member set name='null',pass='null' where id=0,false
+put,update member set name='null',pass='null' where id=0,false
+put,update member set name='null',pass='null' where id=0,false
+put,update member set name='null',pass='null' where id=0,false
+get,select * from member order by id asc,true
