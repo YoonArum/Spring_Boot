@@ -22,7 +22,7 @@ public class MemberController {
 	private MemberService memberService;
 	
 	private static final Logger log = LoggerFactory.getLogger(MemberController.class);
-
+	
 	@Autowired
 	public MemberController(MemberService memberService) {
 		log.info("MemberController() 생성자가 호출됨.");
