@@ -23,7 +23,10 @@ public class MemberController {
 	
 	private static final Logger log = LoggerFactory.getLogger(MemberController.class);
 	
-	@Autowired
+	
+	// 어노테이션 Type에 따라 자동으로 Bean 객체에 주입 해준다.
+	
+	@Autowired	
 	public MemberController(MemberService memberService) {
 		log.info("MemberController() 생성자가 호출됨.");
 		this.memberService = memberService;

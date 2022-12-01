@@ -47,8 +47,9 @@ public class JPAClient {
 	public static void main(String[] args) {
 
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("Chapter04");
-//		EntityManagerFactory emf = Persistence.createEntityManagerFactory("Chapter04Mysql");
+		// EntityManagerFactory emf = Persistence.createEntityManagerFactory("Chapter04Mysql");
 		EntityManager em = emf.createEntityManager();
+
 		// Transaction 생성
 		EntityTransaction tx = em.getTransaction();
 		try {
@@ -66,6 +67,7 @@ public class JPAClient {
 				em.persist(board);
 
 			}
+		
 
 //			Board board = new Board();
 //			board.setSeq(1L);
@@ -80,7 +82,7 @@ public class JPAClient {
 			tx.commit();
 
 		} catch (Exception e) {
-			e.printStackTrace();
+			e.printStackTrace();			
 			tx.rollback();
 			System.out.println("ROLLBACK");
 		} finally {
