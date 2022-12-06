@@ -101,6 +101,7 @@
 		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
 		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
 		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="C:\STS4WorkSpace\Chapter06"/>
 			<item value="C:\Users\user\Downloads\springboot (2)\Chapter05"/>
 			<item value="C:\STS4WorkSpace\Chapter05_1"/>
 			<item value="C:\STS4WorkSpace\Chapter05"/>
